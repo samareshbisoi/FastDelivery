@@ -15,7 +15,7 @@ $(document).ready(function()
 		{
 		// Using GetJSON
 		//var url="http://localhost/phonegap/database/json.php";
-		var menu = '<li><a href="english-home.html" class="close-panel"><img src="images/icons/red/home.png" alt="" title="" /><span>Home</span></a></li><li><a href="pending.html" class="close-panel"><img src="images/icons/red/what.png" alt="" title="" /><span>Pending</span></a></li><li><a href="delivered.html" class="close-panel"><img src="images/icons/red/types.png" alt="" title="" /><span>Delivered</span></a></li><li><a href="undelivered.html" class="close-panel"><img src="images/icons/red/symptoms.png" alt="" title="" /><span>Undelivered</span></a></li><li><a href="logout.html" class="close-panel"><img src="images/icons/red/epidemiology.png" alt="" title="" /><span>Logout</span></a></li>';
+		var menu = '<li><a href="db-dashboard.html" class="close-panel"><img src="images/icons/red/home.png" alt="" title="" /><span>Home</span></a></li><li><a href="pending.html" class="close-panel"><img src="images/icons/red/pending.png" alt="" title="" /><span>Pending</span></a></li><li><a href="delivered.html" class="close-panel"><img src="images/icons/red/delivered.png" alt="" title="" /><span>Delivered</span></a></li><li><a href="undelivered.html" class="close-panel"><img src="images/icons/red/undelivered.png" alt="" title="" /><span>Undelivered</span></a></li><li><a href="contct.html" class="close-panel"><img src="images/icons/red/contact.png" alt="" title="" /><span>Contact</span></a></li><li><a href="logout.html" class="close-panel"><img src="images/icons/red/lock.png" alt="" title="" /><span>Logout</span></a></li>';
 		
 		$("#sidemenu").append(menu);
 		
