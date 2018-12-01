@@ -34,13 +34,17 @@ function load_more() {
 				if(i==0){
 					var next_offset=field.next_offset;
 					$("#next_off").val(next_offset);
+					$("#tot_cnt").val(tot);
 				} else {
 	        	var customer_name=field.customer_name;
 				var order_date=field.order_date;
 				var customer_phone=field.customer_phone;
 				var order_auto_id=field.order_auto_id;
+				var order_no_id=field.order_no_id;
+				var order_address=field.order_address;
+				var order_cost=field.order_cost;
 				
-	            $("#listview").append("<li class='swipeout'><div class='swipeout-content item-content'><div class='post_entry'><div class='post_details'><div class='post_category'><a href='order_detail.html?"+order_auto_id+"'>"+customer_name+"</a></div> <h2><a href='#'>Date : "+order_date+"&nbsp;Contact No. : "+customer_phone+"</a></h2></div><div class='post_swipe'><img src='images/swipe_more.png' alt='' title='' /></div>  </div></div><div class='swipeout-actions-right'>  <a href='blog-single.html' class='action1'><img src='images/icons/white/message.png' alt='' title='' /></a><a href='#' class='action1 open-popup' data-popup='.popup-social'><img src='images/icons/white/like.png' alt='' title='' /></a><a href='#' class='action1 open-popup' data-popup='.popup-social'><img src='images/icons/white/contact.png' alt='' title='' /></a></div></li>");
+			    $("#listview").append("<li><div class='feat_small_icon'><img src='images/icons/black/electronics.png' alt='' title='' /></div><div class='feat_small_details'><h4><a href='order_detail.html?"+order_auto_id+"'>"+customer_name+"&nbsp;&nbsp;Order # "+order_no_id+" &nbsp; &nbsp; Order Cost: Rs."+order_cost+" </a></h4><a href='order_detail.html?"+order_auto_id+"'>Address: "+order_address+"</a></div></li> ");
 				}
 	        });
     	});	
@@ -84,19 +88,27 @@ function load_more() {
 	        $.each(result, function(i, field){
 				if(field.next_offset == -1){
 					$("#loadMore").hide();
+					$("#next_off").val(next_offset);
 				}					
 				if(i==0){
 					var next_offset=field.next_offset;
+					var tot_cnt_data=field.tot;
 					$("#next_off").val(next_offset);
+					$("#tot_cnt").html(tot_cnt_data);
 				} else {
 	        	var customer_name=field.customer_name;
 				var customer_phone=field.customer_phone;
 				var order_date=field.order_date;
 				var order_auto_id=field.order_auto_id;
 				
+				var order_no_id=field.order_no_id;
+				var order_address=field.order_address;
+				var order_cost=field.order_cost;
 				
-	            $("#listview").append("<li class='swipeout'><div class='swipeout-content item-content'><div class='post_entry'><div class='post_details'><div class='post_category'><a href='order_details.html?"+order_auto_id+"'>"+customer_name+"</a></div> <h2><a href='#'>Date : "+order_date+"&nbsp;<br>"+customer_phone+"</a></h2></div><div class='post_swipe'><img src='images/swipe_more.png' alt='' title='' /></div>  </div></div><div class='swipeout-actions-right'>  <a href='#' class='action1'><img src='images/icons/white/message.png' alt='' title='' /></a><a href='#' class='action1 open-popup' data-popup='.popup-social'><img src='images/icons/white/like.png' alt='' title='' /></a><a href='#' class='action1 open-popup' data-popup='.popup-social'><img src='images/icons/white/contact.png' alt='' title='' /></a></div></li>");
 				
+								 $("#listview").append("<li><div class='feat_small_icon' style='background-color:#CCCCCC; font-size:14px; font-weight:bold; color:#990000; text-align:center;'>"+order_date+"</div><div class='feat_small_details'><h4><a href='order_detail.html?"+order_auto_id+"'>"+customer_name+"&nbsp;&nbsp;Order # "+order_no_id+" &nbsp; &nbsp; Order Cost: Rs."+order_cost+" </a></h4><a href='order_detail.html?"+order_auto_id+"'><strong>Address:</strong> &nbsp; "+order_address+"</a></div></li> ");
+
+
 				/* $("#listview").append("<li class='swipeout'><div class='swipeout-content item-content'><div class='post_entry'><div class='post_thumb'><img src='"+img_value+"' width='200' alt='' title='' /></div><div class='post_details'><div class='post_category'><a href='article-details.html?"+ article_id + "'>"+ article_title + "</a></div><h2><a href='article-details.html?"+ article_id + "'>"+ article_body +"</a></h2>By Fresh Box Office on "+post_date+"</div><div class='post_swipe'><img src='images/swipe_more.png' alt='' title='' /></div></div></div></li>");*/
 				}
 	        });
