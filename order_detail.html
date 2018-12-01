@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link href="images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
 <link href="images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-<title>Pending Orders</title>
+<title>Order Details</title>
 <link rel="stylesheet" href="css/framework7.css">
 <link rel="stylesheet" href="style.css">
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
@@ -19,7 +19,8 @@
 <script type="text/javascript" src="datajs/globalvar.js"></script>
 <script type="text/javascript" src="datajs/jq.js"></script>
 <script type="text/javascript" src="datajs/leftmenu_dashboard.js"></script>
-<script type="text/javascript" src="datajs/pending_data.js"></script>
+
+<script type="text/javascript" src="datajs/get_order_details.js"></script>
 
 <script type="text/javascript" src="datajs/get_dboy_details.js"></script>
 </head>
@@ -32,8 +33,6 @@
     <div class="panel panel-left panel-reveal">
 			<nav class="sidebar-nav">
 			<ul id="sidemenu">
-			
-
 			</ul>
 			</nav>
     </div>
@@ -85,33 +84,64 @@
     </a>  </div>
      
      <div id="pages_maincontent">
-      <h2 class="page_title">Pending Orders ( <span id="tot_cnt" style="background:#FFFFFF; color:#990000;">0</span> ) </h2>
       
-       
-    <div class="page_single layout_fullwidth_padding toolbarpage"> 
-   <img src="images/loader.gif" alt="Loading..." id="loader" />
-            <!--<div class="list-block">-->
-               <ul class="features_list_detailed" id="listview">
-                
-                
-                
-                
-                
-                
-              </ul>
-              <input type="hidden" id="next_off" value="" />
-            <div onClick="load_more()" id="loadMore">LOAD MORE</div> 
-            <div id="showLess">END</div> 
-            
-      
-    
-      
-      <!--</div>-->
+      <h2 class="page_title">View Order Details</h2>
 
-   
-        <a href="db-dashboard.html" class="button_full">Back</a>    <br> <br> <br>
-          
+       
+    
+    <div class="page_single layout_fullwidth_padding toolbarpage">  
+    
+    <div class="contactform">
+            <form class="cmxform" id="ContactForm" method="post" action="">
+			<input type="hidden" name="order_auto_id" id="order_auto_id" value="" />
+			
+			<label>Date :</label>
+            <input type="text" name="order_date" id="order_date" value="" readonly="readonly" class="form_input" />
+			
+			<label>Order ID :</label>
+            <input type="text" name="order_no_id" id="order_no_id" value="" readonly="readonly" class="form_input" />
+			
+            <label>Customer Name :</label>
+            <input type="text" name="customer_name" id="customer_name" value="" readonly="readonly" class="form_input " />
+			 <label>Customer Phone :</label>
+            <input type="text" name="customer_phone" id="customer_phone" value="" readonly="readonly" class="form_input " />
+			<label>Customer Address :</label>
+            <textarea name="order_address" id="order_address" readonly="readonly" class="form_textarea" rows="8" cols="10"></textarea>
+			
+			<label>Amount to be paid :</label>
+            <input type="text" name="order_cost" id="order_cost" value="" readonly="readonly" class="form_input" />
+			
+			<label>Payment Method :</label>
+            <input type="text" name="payment_method" id="payment_method" value="" readonly="readonly" class="form_input" />
+            
+            
+            
+            <label>Please Mark order as "Delivered" or "Undelivered" :</label>
+            <div class="form_row">
+              <select name="order_status" id="order_status" class="form_select">
+                <option value="">--Select--</option>
+                <option value="delivered">Delivered</option>
+                <option value="cancelled">Undelivered</option>
+              </select>
+            </div>
+			<label>Comment (if Undelivered) :</label>
+            <textarea name="comment" id="comment" class="form_textarea" rows="8" cols="10"></textarea>
+            
+            
+            
+            
+            <input type="button" name="submit" class="form_submit" id="submit22" value="Submit" onClick="submit_data()" />
+            <!--<input class="" type="hidden" name="to"  value="youremail@yourwebsite.com" />
+            <input class="" type="hidden" name="subject" value="Contacf form message" />-->
+            <label id="loader" style="display:none;"><img src="images/loader.gif" alt="Loading..." id="LoadingGraphic" /></label>
+            </form>
           </div>
+
+  
+
+
+
+<br><br><a href="db-dashboard.html" class="button_full">Back</a>          </div>
     </div>
   </div>
 </div>
@@ -127,7 +157,7 @@
               <li><a href="pending.html" class="external"><img src="images/icons/white/pending.png" alt="" title="" /></a></li>
               <li><a href="#" data-panel="right" class="open-panel navbgtransblue"><img src="images/icons/white/login.png" alt="" title="" /></a></li>
               </ul>
-              </div>  
+              </div> 
         </div>
       </div>
     </div>
@@ -225,6 +255,5 @@
 
 <script type="text/javascript" src="datajs/jquery.session.js"></script>
 <script type="text/javascript" src="datajs/check_login.js"></script>
-
   </body>
 </html>
